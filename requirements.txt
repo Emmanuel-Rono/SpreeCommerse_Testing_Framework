@@ -1,0 +1,21 @@
+# Selenium for browser automation
+selenium
+
+# Pytest for running tests
+pytest==8.3.2
+
+#  ddt
+pandas
+openpyxl
+
+# For better waits/logging (enhancement later)
+webdriver-manager
+
+# Optional: For reporting
+pytest-html
+
+# For YAML/JSON config files
+PyYAML
+
+# For rich logging (pretty logs)
+rich
