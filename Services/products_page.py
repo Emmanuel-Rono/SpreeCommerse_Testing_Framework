@@ -35,3 +35,5 @@ class OpenProductsPage(BasePage):
         if wishlist_buttons:
             wishlist_buttons[0].click()
 
+
+
