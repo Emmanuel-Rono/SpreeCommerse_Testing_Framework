@@ -5,13 +5,11 @@ class ProductsPageLocators:
 
     PRODUCT_ITEMS = (By.CSS_SELECTOR, ".product-component")
     PRODUCT_LINKS = (By.CSS_SELECTOR, ".product-component a")
-
     SEARCH_INPUT = (By.ID, "keywords")
     SEARCH_BUTTON = (By.CSS_SELECTOR, "button[type='submit']")
 
-
     @staticmethod
-    def wishlist_Button(variant_id):
+    def wishlist_button(variant_id):
         return(
             By.CSS_SELECTOR,
             f"div[data-wished-item-variant-id-value='{variant_id}'] button[aria-label='Add to wishlist']"
