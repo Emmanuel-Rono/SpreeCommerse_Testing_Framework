@@ -15,6 +15,7 @@ def test_get_product_list(driver):
     page = OpenProductsPage(driver)
     page.OpenProductPage()
     products = page.get_product_list()
+    #check presence
     assert len(products) > 0
     for product in products:
         assert product.is_displayed()
