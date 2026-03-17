@@ -12,5 +12,11 @@ def test_click_first_product(driver):
     assert ProductsPageLocators.PRODUCT_ITEMS[1].is_displayed()
 
 def test_get_product_list(driver):
-    items_loaded = OpenProductsPage
+    page = OpenProductsPage(driver)
+    page.OpenProductPage()
+    products = page.get_product_list()
+    assert len(products) > 0
+    for product in products:
+        assert product.is_displayed()
+
 

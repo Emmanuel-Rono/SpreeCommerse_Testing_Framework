@@ -1,8 +1,5 @@
-from selenium.webdriver import Keys
-from selenium.webdriver.common.by import By
 
 from Configuration.settings import PRODUCTS_PAGE
-from Locators import locators
 from Locators.locators import ProductsPageLocators
 from Services.basepage import BasePage
 
