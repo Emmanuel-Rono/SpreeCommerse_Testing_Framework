@@ -2,9 +2,8 @@ from selenium.webdriver.common.by import By
 
 
 class ProductsPageLocators:
-
-    PRODUCT_ITEMS = (By.CSS_SELECTOR, ".product-component")
-    PRODUCT_LINKS = (By.CSS_SELECTOR, ".product-component a")
+    PRODUCT_ITEMS = (By.CSS_SELECTOR, "#products a[id^='product-']")
+    PRODUCT_LINKS = (By.CSS_SELECTOR, "#products a[id^='product-']")
     SEARCH_INPUT = (By.ID, "keywords")
     SEARCH_BUTTON = (By.CSS_SELECTOR, "button[type='submit']")
 
