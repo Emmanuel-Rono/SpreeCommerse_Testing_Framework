@@ -7,6 +7,7 @@ class OpenProductsPage(BasePage):
     def OpenProductPage(self):
         self.open(PRODUCTS_PAGE)
 
+
     def get_page_title(self):
         self.get_title()
 
@@ -15,10 +16,13 @@ class OpenProductsPage(BasePage):
 
     def click_first_product(self):
         self.open(PRODUCTS_PAGE)
-        productlinks=self.driver.find_elements(*ProductsPageLocators.PRODUCT_ITEMS)
-        if productlinks:
-            productlinks[0].click()
+        product_links=self.driver.find_elements(*ProductsPageLocators.PRODUCT_ITEMS)
 
+        if product_links:
+            product_name = product_links[0].text
+            product_links[0].click()
+            return product_name
+        return None
 
     def  search_products(self,product_name):
         search_box = self.driver.find_element(*ProductsPageLocators.SEARCH_INPUT)
