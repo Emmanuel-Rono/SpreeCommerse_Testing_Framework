@@ -19,3 +19,20 @@ PyYAML
 
 # For rich logging (pretty logs)
 rich
+
+# HTTP client for API tests
+requests
+
+# Env loading
+python-dotenv
+
+# Parallelization + retries + timeouts
+pytest-xdist
+pytest-rerunfailures
+pytest-timeout
+
+# Optional: Allure reporting
+allure-pytest
+
+# Visual comparison helpers
+Pillow

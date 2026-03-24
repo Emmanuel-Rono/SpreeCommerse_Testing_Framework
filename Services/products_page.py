@@ -7,9 +7,12 @@ class OpenProductsPage(BasePage):
     def OpenProductPage(self):
         self.open(PRODUCTS_PAGE)
 
+    # New preferred naming style
+    def open_products_page(self):
+        self.open(PRODUCTS_PAGE)
 
     def get_page_title(self):
-        self.get_title()
+        return self.get_title()
 
     def get_product_list(self):
         return self.driver.find_elements(*ProductsPageLocators.PRODUCT_ITEMS)

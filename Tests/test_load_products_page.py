@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 from Locators.locators import ProductsPageLocators
 from Services.products_page import OpenProductsPage
-
+#
 
 def test_load_products_page(driver):
     driver.get("https://demo.spreecommerce.org/products")

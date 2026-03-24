@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dcf752d6-fe31-4439-a036-2c417720b0af" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/products_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/Services/products_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/test_load_products_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/test_load_products_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/conftest.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,25 +31,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python tests.Python tests for test_load_products_page.test_click_first_product.executor": "Run",
-    "Python tests.Python tests for test_load_products_page.test_get_product_list.executor": "Run",
-    "Python.driver_factory.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Codes/QA/SpreeQA/SpreeCommerse_Testing_Framework"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests for test_load_products_page.test_click_first_product.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_load_products_page.test_get_product_list.executor&quot;: &quot;Run&quot;,
+    &quot;Python.driver_factory.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Codes/QA/SpreeQA/SpreeCommerse_Testing_Framework&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.LLMConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Codes\QA\SpreeQA\SpreeCommerse_Testing_Framework" />
       <recent name="D:\Codes\AI_Testing\StarterStructure" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_load_products_page.test_click_first_product">
+  <component name="RunManager" selected="Python tests.Python tests for test_load_products_page.test_get_product_list">
     <configuration name="Python tests for test_load_products_page.test_click_first_product" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="StarterStructure" />
       <option name="ENV_FILES" value="" />
@@ -83,8 +84,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for test_load_products_page.test_click_first_product" />
         <item itemvalue="Python tests.Python tests for test_load_products_page.test_get_product_list" />
+        <item itemvalue="Python tests.Python tests for test_load_products_page.test_click_first_product" />
       </list>
     </recent_temporary>
   </component>
