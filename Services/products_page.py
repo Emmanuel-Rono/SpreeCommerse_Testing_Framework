@@ -10,7 +10,7 @@ class OpenProductsPage(BasePage):
     def OpenProductPage(self):
         self.open(PRODUCTS_PAGE)
 
-    # New preferred naming style
+    
     def open_products_page(self):
         self.open(PRODUCTS_PAGE)
 
@@ -44,9 +44,7 @@ class OpenProductsPage(BasePage):
     def search_products(self, product_name):
         search_input_candidates = [
             ProductsPageLocators.SEARCH_INPUT,
-            (By.CSS_SELECTOR, "input[type='search']"),
-            (By.NAME, "q"),
-            (By.CSS_SELECTOR, "input[name*='query']"),
+            (By.XPATH, "//*[@id='open-search']")
         ]
         search_button_candidates = [
             ProductsPageLocators.SEARCH_BUTTON,

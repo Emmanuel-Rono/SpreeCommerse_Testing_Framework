@@ -11,9 +11,10 @@ def test_add_to_cart_flow(driver):
     products = OpenProductsPage(driver)
     products.open_products_page()
     products.search_products("shirt")
+    products.wait_for_products_loaded()
 
     product_name = products.click_first_product()
-    assert product_name is not None
+    assert product_name is not None and product_name.strip() != ""
 
     details = ProductDetailsPage(driver)
     details.add_to_cart()
@@ -23,4 +24,5 @@ def test_add_to_cart_flow(driver):
         cart.open_cart()
 
     assert cart.is_cart_page()
+    cart.wait_for_line_items()
     assert cart.get_line_items_count() > 0

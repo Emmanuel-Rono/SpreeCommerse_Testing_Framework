@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
 
 from Core.waits import wait_for_clickable
 from Services.basepage import BasePage
@@ -38,3 +39,13 @@ class CartPage(BasePage):
             if items:
                 return len(items)
         return 0
+
+    def wait_for_line_items(self, timeout=10):
+        def _has_items(driver):
+            for locator in self.CART_ITEM_CANDIDATES:
+                items = driver.find_elements(*locator)
+                if items:
+                    return items
+            return False
+
+        return WebDriverWait(self.driver, timeout).until(_has_items)
