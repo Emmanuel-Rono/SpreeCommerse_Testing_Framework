@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.wait import WebDriverWait
 
 from Configuration.settings import PRODUCTS_PAGE
 from Core.waits import wait_for_visible, wait_for_clickable
@@ -10,7 +12,7 @@ class OpenProductsPage(BasePage):
     def OpenProductPage(self):
         self.open(PRODUCTS_PAGE)
 
-    
+    # New preferred naming style
     def open_products_page(self):
         self.open(PRODUCTS_PAGE)
 
@@ -20,9 +22,18 @@ class OpenProductsPage(BasePage):
     def get_product_list(self):
         return self.driver.find_elements(*ProductsPageLocators.PRODUCT_ITEMS)
 
+    def _wait_for_any_product(self, timeout=10):
+        def _has_products(driver):
+            elements = driver.find_elements(*ProductsPageLocators.PRODUCT_ITEMS)
+            return elements if elements else False
+
+        return WebDriverWait(self.driver, timeout).until(_has_products)
+
+    def wait_for_products_loaded(self, timeout=10):
+        return self._wait_for_any_product(timeout=timeout)
+
     def click_first_product(self):
-        self.open(PRODUCTS_PAGE)
-        product_links = self.driver.find_elements(*ProductsPageLocators.PRODUCT_ITEMS)
+        product_links = self._wait_for_any_product()
 
         if product_links:
             product_name = product_links[0].text
@@ -39,30 +50,14 @@ class OpenProductsPage(BasePage):
                 last_error = exc
         if last_error:
             raise last_error
+        
         raise AssertionError("No locator candidates provided")
 
     def search_products(self, product_name):
-        search_input_candidates = [
-            ProductsPageLocators.SEARCH_INPUT,
-            (By.XPATH, "//*[@id='open-search']")
-        ]
-        search_button_candidates = [
-            ProductsPageLocators.SEARCH_BUTTON,
-            (By.CSS_SELECTOR, "button[type='submit']"),
-            (By.CSS_SELECTOR, "input[type='submit']"),
-        ]
-
-        search_box = self._find_first(search_input_candidates)
-        search_box.clear()
+        search_box = self.driver.find_elements(By.XPATH, "//*[@id='open-search']" )
+        search_box.send_keys(Keys.CONTROL + "a")
+        search_box.send_keys(Keys.BACKSPACE)
         search_box.send_keys(product_name)
-
-        try:
-            search_button = self._find_first(search_button_candidates)
-            wait_for_clickable(self.driver, search_button_candidates[0], timeout=5)
-            search_button.click()
-        except Exception:
-            # Some sites auto-search on input; ignore if submit not found.
-            pass
 
     def add_first_product_to_wishlist(self, the_variantid):
         wishlist_buttons = self.driver.find_elements(*ProductsPageLocators.wishlist_button(the_variantid))

@@ -9,9 +9,11 @@ class ProductDetailsPage(BasePage):
     ADD_TO_CART_CANDIDATES = [
         (
             By.XPATH,
-            "//button[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',)fo cart') or contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'add to cart')]",
+            "//button[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'add to cart') or contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'add to cart')]",
         ),
-        
+        (By.CSS_SELECTOR, "button[data-hook*='add_to_cart']"),
+        (By.CSS_SELECTOR, "button[name='add-to-cart']"),
+        (By.CSS_SELECTOR, "form[action*='cart'] button[type='submit']"),
         (By.CSS_SELECTOR, "button[type='submit']"),
     ]
 
