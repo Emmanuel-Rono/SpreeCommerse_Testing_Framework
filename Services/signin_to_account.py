@@ -10,14 +10,17 @@ class Customer_Acccount(BasePage):
         except Exception as e:
             print(f"Error:{e}")
     
-    def specify_size():
+    def specify_size(self):
+        pass
 
 
     def specify_quantity():
+        pass
     
     
 
 #Add to cart
     def add_to_cart():
+        pass
 
     
