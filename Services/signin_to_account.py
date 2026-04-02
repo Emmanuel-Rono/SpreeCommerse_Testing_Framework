@@ -18,7 +18,7 @@ class Customer_Account(BasePage):
 
         except Exception as e:
             print(f"Error:{e}")
-            
+
 #To enter the login credentials in the fields
     def enter_login_credentials(self, email,password):
 
@@ -34,6 +34,11 @@ class Customer_Account(BasePage):
 
         except Exception as e:
             print(f"Log: {e}")     
+
+    def is_logged_in(self):
+        try:
+            
         
+
     
 
