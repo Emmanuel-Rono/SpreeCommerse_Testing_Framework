@@ -7,12 +7,13 @@ class Customer_Account(BasePage):
     enter_email_field_locator=(By.XPATH, '//*[@id="email"]')
     enter_password_field_locator = (By.XPATH, '//*[@id="password"]')
     sign_in_button_locator=(By.XPATH, '/html/body/main/div[1]/div/div[2]/form/div[4]/button')
+    account_button_after_sign_locator = (By.XPATH, '/html/body/header/div[1]/div/div/div[3]/div[2]/a')
 
     def open_account_page(self):
         
         try:
             account_button = self.find_element(*self.account_button_locator)
-            enter_email_field = self.find_element(*self.enter_email_field_locator)           account_button.click()
+            enter_email_field = self.find_element(*self.enter_email_field_locator)
             assert enter_email_field.is_displayed()
             self.driver.implicit.wait(5)
 
@@ -37,6 +38,10 @@ class Customer_Account(BasePage):
 
     def is_logged_in(self):
         try:
+            account_button_after_signin= self.find_element(*self.account_button_after_sign_locator)]
+            account_button_after_signin.click()
+        except Exception as e:
+            print(f"log: {e}")
             
         
 
