@@ -1,9 +1,8 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
-
 from Services.basepage import BasePage
+
 
 class Customer_Account(BasePage):
     account_button_locator= (By.XPATH, "//*[@id='section-21057']/header/nav/div/div/div[3]/div[2]/button")
@@ -12,7 +11,6 @@ class Customer_Account(BasePage):
     sign_in_button_locator=(By.XPATH, '/html/body/main/div[1]/div/div[2]/form/div[4]/button')
     account_button_after_sign_locator = (By.XPATH, '/html/body/header/div[1]/div/div/div[3]/div[2]/a')
     account_signed_in_fields_locator =(By.XPATH, '/html/body/main/div[1]/div/aside/div/nav/ul') 
-
 
     def open_account_page(self):
     
@@ -39,14 +37,9 @@ class Customer_Account(BasePage):
             enter_password_field.clear()
             enter_password_field.send_keys(password)
             sign_in_button.click()
-
             return True
 
-            
-    
-
     def is_logged_in(self):
-
 
             account_button_after_signin=WebDriverWait(self.driver,timeout=10).until(
                  EC.visibility_of_element_located(self.find_element(self.account_button_after_sign_locator))
