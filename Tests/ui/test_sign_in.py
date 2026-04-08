@@ -15,7 +15,7 @@ def test_open_account_page(driver):
     assert account.open_account_page() == True
 
  
-def test_sign_in_with_valid_credentials(driver, setting):
+def test_sign_in_with_valid_credentials(driver, settings):
     products_page = OpenProductsPage(driver)
     products_page.open_products_page()
     account = Customer_Account(driver)
