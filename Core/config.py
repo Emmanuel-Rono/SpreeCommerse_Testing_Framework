@@ -16,6 +16,9 @@ class Settings:
     api_base_url: str
     screenshots_dir: str
     artifacts_dir: str
+    test_user_email: Optional[str]
+    test_user_password: Optional[str]
+    
 
 
 def _get_bool(value: Optional[str], default: bool) -> bool:
@@ -41,4 +44,7 @@ def load_settings() -> Settings:
         api_base_url=api_base_url,
         screenshots_dir=os.getenv("SCREENSHOTS_DIR", "Artifacts/screenshots"),
         artifacts_dir=os.getenv("ARTIFACTS_DIR", "Artifacts"),
+        test_user_email=os.getenv("TEST_USER_EMAIL"),
+        test_user_password=os.getenv("TEST_USER_PASSWORD")
     )
+

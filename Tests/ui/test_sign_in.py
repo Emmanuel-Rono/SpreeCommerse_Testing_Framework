@@ -9,8 +9,8 @@ import pytest
 
 def test_open_account_page(driver):
     products_page =OpenProductsPage(driver)
-    products_page.open_products_page(driver)
+    products_page.open_products_page()
     account = Customer_Account(driver)
-    account.open_account_page
     assert account.open_account_page() == True
+
  

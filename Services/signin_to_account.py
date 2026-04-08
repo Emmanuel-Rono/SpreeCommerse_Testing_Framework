@@ -5,7 +5,7 @@ from Services.basepage import BasePage
 
 
 class Customer_Account(BasePage):
-    account_button_locator= (By.XPATH, "//*[@id='section-21057']/header/nav/div/div/div[3]/div[2]/button")
+    account_button_locator = (By.XPATH, "//*[@aria-label='Account']")
     enter_email_field_locator=(By.XPATH, '//*[@id="email"]')
     enter_password_field_locator = (By.XPATH, '//*[@id="password"]')
     sign_in_button_locator=(By.XPATH, '/html/body/main/div[1]/div/div[2]/form/div[4]/button')
