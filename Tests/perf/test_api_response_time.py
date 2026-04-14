@@ -1,6 +1,7 @@
 import time
 import pytest
 
+#Markers
 
 @pytest.mark.perf
 def test_api_products_response_time(api_client):
