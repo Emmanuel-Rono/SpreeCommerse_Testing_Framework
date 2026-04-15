@@ -2,19 +2,19 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 
-from Configuration.settings import PRODUCTS_PAGE
 from Core.waits import wait_for_visible, wait_for_clickable
 from Locators.locators import ProductsPageLocators
 from Services.basepage import BasePage
+from Core.config import base_url
 
 
 class OpenProductsPage(BasePage):
     def OpenProductPage(self):
-        self.open(PRODUCTS_PAGE)
+        self.open(base_url,"/products")
 
     # New preferred naming style
     def open_products_page(self):
-        self.open(PRODUCTS_PAGE)
+        self.open(base_url,"/products")
 
     def get_page_title(self):
         return self.get_title()
