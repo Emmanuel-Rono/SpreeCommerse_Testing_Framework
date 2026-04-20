@@ -53,7 +53,7 @@ class OpenProductsPage(BasePage):
         raise AssertionError("No locator candidates provided")
 
     def search_products(self, product_name):
-        search_box = self.driver.find_elements(By.XPATH, "//*[@id='open-search']" )
+        search_box = self.driver.find_element(By.XPATH, "//*[@id='open-search']")
         search_box.send_keys(Keys.CONTROL + "a")
         search_box.send_keys(Keys.BACKSPACE)
         search_box.send_keys(product_name)

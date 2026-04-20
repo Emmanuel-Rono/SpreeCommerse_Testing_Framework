@@ -4,7 +4,6 @@ from typing import Optional
 
 from dotenv import load_dotenv
 
-
 @dataclass(frozen=True)
 class Settings:
     base_url: str
@@ -18,8 +17,6 @@ class Settings:
     artifacts_dir: str
     test_user_email: Optional[str]
     test_user_password: Optional[str]
-    
-
 
 def _get_bool(value: Optional[str], default: bool) -> bool:
     if value is None:
@@ -47,4 +44,3 @@ def load_settings() -> Settings:
         test_user_email=os.getenv("TEST_USER_EMAIL"),
         test_user_password=os.getenv("TEST_USER_PASSWORD")
     )
-
