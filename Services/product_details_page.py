@@ -6,6 +6,8 @@ from Services.basepage import BasePage
 
 
 class ProductDetailsPage(BasePage):
+
+
     ADD_TO_CART_CANDIDATES = [
         (
             By.XPATH,
