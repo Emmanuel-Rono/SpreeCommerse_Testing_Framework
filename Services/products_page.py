@@ -7,7 +7,7 @@ from Locators.locators import ProductsPageLocators
 from Services.basepage import BasePage
 
 
-class OpenProductsPage(BasePage):
+class OpenProductsPage(BasePage):#sub Class of BasePage
     def OpenProductPage(self):
         self.open("/products")
 

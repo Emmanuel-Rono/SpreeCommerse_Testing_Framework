@@ -16,7 +16,7 @@ def _images_are_equal(img_a: Image.Image, img_b: Image.Image, diff_threshold: in
 
 @pytest.mark.visual
 def test_products_page_visual_baseline(driver, settings):
-    page = OpenProductsPage(driver)
+    page = OpenProductsPage(driver, settings)
     page.open_products_page()
 
     baseline_dir = ensure_dir("Artifacts/visual_baseline")
