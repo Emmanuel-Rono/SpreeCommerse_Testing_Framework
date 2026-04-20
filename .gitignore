@@ -1,3 +1,13 @@
 
 .env
-.env.*   # optional, if you use .env.local, .env.dev, etc.
+.env.*
+.venv/
+.idea/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+Artifacts/screenshots/*.png
+Artifacts/visual_actual/*
+!Artifacts/screenshots/.gitkeep
+!Artifacts/visual_actual/.gitkeep
+!Artifacts/visual_baseline/.gitkeep
