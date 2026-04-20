@@ -7,8 +7,8 @@ from Services.products_page import OpenProductsPage
 
 @pytest.mark.ui
 @pytest.mark.regression
-def test_add_to_cart_flow(driver):
-    products = OpenProductsPage(driver)
+def test_add_to_cart_flow(driver, settings):
+    products = OpenProductsPage(driver, settings)
     products.open_products_page()
     products.search_products("shirt")
     products.wait_for_products_loaded()
