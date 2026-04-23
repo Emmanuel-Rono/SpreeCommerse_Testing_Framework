@@ -6,17 +6,9 @@ from Services.basepage import BasePage
 
 
 class CartPage(BasePage):
-    CART_LINK_CANDIDATES = [
-        (By.CSS_SELECTOR, "a[href*='/cart']"),
-        (By.CSS_SELECTOR, "a[href*='cart']"),
-        (By.CSS_SELECTOR, "a[aria-label*='Cart']"),
-    ]
+    CART_LINK_CANDIDATES = By.Xpath,"/html/body/header/div[1]/div/div/div[3]/button[2]"
 
-    CART_ITEM_CANDIDATES = [
-        (By.CSS_SELECTOR, ".cart-item"),
-        (By.CSS_SELECTOR, "#line_items .line-item"),
-        (By.CSS_SELECTOR, "[data-hook='cart_items'] .cart-item"),
-    ]
+    CART_ITEM_CANDIDATES =By.Xpath, "//*[@id="radix-_R_snpffb_"]/div[2]/ul/li"
 
     def open_cart(self, timeout=10):
         for locator in self.CART_LINK_CANDIDATES:
