@@ -23,7 +23,6 @@ class Customer_Account(BasePage):
         )
         return enter_email_field.is_displayed()
 
-    # To enter the login credentials in the fields
     def enter_login_credentials(self, email, password, timeout=10):
         enter_email_field = WebDriverWait(self.driver, timeout).until(
             EC.visibility_of_element_located(self.enter_email_field_locator)

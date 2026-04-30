@@ -2,16 +2,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 
-from Core.waits import wait_for_visible, wait_for_clickable
 from Locators.locators import ProductsPageLocators
 from Services.basepage import BasePage
 
 
-class OpenProductsPage(BasePage):#sub Class of BasePage
+class OpenProductsPage(BasePage):
     def OpenProductPage(self):
         self.open("/products")
 
-    # New preferred naming style
     def open_products_page(self):
         self.open("/products")
 
@@ -33,27 +31,14 @@ class OpenProductsPage(BasePage):#sub Class of BasePage
 
     def click_first_product(self):
         product_links = self._wait_for_any_product()
-
         if product_links:
             product_name = product_links[0].text
             product_links[0].click()
             return product_name
         return None
 
-    def _find_first(self, locators, timeout=10):
-        last_error = None
-        for locator in locators:
-            try:
-                return wait_for_visible(self.driver, locator, timeout=timeout)
-            except Exception as exc:
-                last_error = exc
-        if last_error:
-            raise last_error
-        
-        raise AssertionError("No locator candidates provided")
-
     def search_products(self, product_name):
-        search_box = self.driver.find_element(By.XPATH, "//*[@id='open-search']")
+        search_box = self.driver.find_element(*ProductsPageLocators.SEARCH_INPUT)
         search_box.send_keys(Keys.CONTROL + "a")
         search_box.send_keys(Keys.BACKSPACE)
         search_box.send_keys(product_name)
