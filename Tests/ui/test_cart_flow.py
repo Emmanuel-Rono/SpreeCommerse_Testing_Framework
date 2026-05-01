@@ -10,7 +10,7 @@ from Services.products_page import OpenProductsPage
 def test_add_to_cart_flow(driver, settings):
     products = OpenProductsPage(driver, settings)
     products.open_products_page()
-    products.search_products("shirt")
+    products.search_products("Semi-Automatic Espresso Machine")
     products.wait_for_products_loaded()
 
     product_name = products.click_first_product()
