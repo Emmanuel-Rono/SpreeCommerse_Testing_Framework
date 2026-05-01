@@ -1,8 +1,10 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import StaleElementReferenceException
 from selenium.webdriver.support.wait import WebDriverWait
 
 from Locators.locators import ProductsPageLocators
+from Core.waits import wait_for_clickable, wait_for_visible
 from Services.basepage import BasePage
 
 
@@ -38,12 +40,15 @@ class OpenProductsPage(BasePage):
         return None
 
     def search_products(self, product_name):
-        search_box = self.driver.find_element(*ProductsPageLocators.SEARCH_INPUT)
-        search_box.send_keys(Keys.CONTROL + "a")
-        search_box.send_keys(Keys.BACKSPACE)
-        search_box.send_keys(product_name)
-
-    def add_first_product_to_wishlist(self, the_variantid):
-        wishlist_buttons = self.driver.find_elements(*ProductsPageLocators.wishlist_button(the_variantid))
-        if wishlist_buttons:
-            wishlist_buttons[0].click()
+        search_trigger = wait_for_clickable(self.driver, ProductsPageLocators.SEARCH_TRIGGER)
+        search_trigger.click()
+        for _ in range(3):
+            try:
+                search_box = wait_for_visible(self.driver, ProductsPageLocators.SEARCH_INPUT)
+                search_box.clear()
+                search_box.send_keys(product_name)
+                search_box.send_keys(Keys.ENTER)
+                return
+            except StaleElementReferenceException:
+                continue
+        raise AssertionError("Search input became stale before the query could be entered")

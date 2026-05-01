@@ -7,7 +7,7 @@ from Services.basepage import BasePage
 class ProductDetailsPage(BasePage):
     ADD_TO_CART_BUTTON = (
         By.XPATH,
-        "//button[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'add to cart') or contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'add to cart')]",
+        "/html/body/main/div[2]/div/div[2]/div[4]/div/button",
     )
 
     def add_to_cart(self, timeout=15):

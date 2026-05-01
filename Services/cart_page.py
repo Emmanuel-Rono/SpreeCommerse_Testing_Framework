@@ -7,7 +7,7 @@ from Services.basepage import BasePage
 
 class CartPage(BasePage):
     TO_CART_BUTTON = (By.XPATH, "/html/body/header/div[1]/div/div/div[3]/button[2]")
-    CART_ITEMS = (By.XPATH, "//ul/li[.//a[contains(@href,'/products/')]]")
+    CART_ITEMS = (By.CSS_SELECTOR, "#radix-_R_snpffb_ > div.flex-1.overflow-y-auto > ul")
 
     def open_cart(self, timeout=10):
         try:

@@ -2,21 +2,10 @@ from selenium.webdriver.common.by import By
 
 
 class ProductsPageLocators:
-    PRODUCT_ITEMS = (By.CSS_SELECTOR, "#products a[id^='product-']")
-    PRODUCT_LINKS = (By.CSS_SELECTOR, "#products a[id^='product-']")
-    SEARCH_INPUT = (By.ID, "keywords")
-    SEARCH_BUTTON = (By.CSS_SELECTOR, "button[type='submit']")
-
-    @staticmethod
-    def wishlist_button(variant_id):
-        return(
-            By.CSS_SELECTOR,
-            f"div[data-wished-item-variant-id-value='{variant_id}'] button[aria-label='Add to wishlist']"
-        )
-
-    @staticmethod
-    def products_button(product_id):
-        return (
-            By.CSS_SELECTOR,
-            f"div['mb-3 relative w-full product-card-featured-image'] id='{product_id}']"
-        )
+    PRODUCT_ITEMS = (
+        By.XPATH,
+        "//main//div[contains(@class,'grid-cols-2') and contains(@class,'lg:grid-cols-3')]//a[contains(@href,'/products/')]",
+    )
+    PRODUCT_LINKS = PRODUCT_ITEMS
+    SEARCH_TRIGGER = (By.XPATH, "/html/body/header/div[1]/div/div/div[3]/button[1]")
+    SEARCH_INPUT = (By.XPATH, "//*[@id='search-overlay']/div/div/div/form/div/input")
