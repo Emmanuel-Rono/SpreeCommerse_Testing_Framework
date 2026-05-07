@@ -6,11 +6,11 @@ from Services.basepage import BasePage
 
 class Customer_Account(BasePage):
     account_button_locator = (By.XPATH, "//*[@aria-label='Account']")
-    enter_email_field_locator=(By.XPATH, '//*[@id="email"]')
+    enter_email_field_locator = (By.XPATH, '//*[@id="email"]')
     enter_password_field_locator = (By.XPATH, '//*[@id="password"]')
-    sign_in_button_locator=(By.XPATH, '/html/body/main/div[1]/div/div[2]/form/div[4]/button')
+    sign_in_button_locator = (By.XPATH, '/html/body/main/div[1]/div/div[2]/form/div[4]/button')
     account_button_after_sign_locator = (By.XPATH, '/html/body/header/div[1]/div/div/div[3]/div[2]/a')
-    account_signed_in_fields_locator =(By.XPATH, '/html/body/main/div[1]/div/aside/div/nav/ul')
+    account_signed_in_fields_locator = (By.XPATH, '/html/body/main/div[1]/div/aside/div/nav/ul')
     login_error_locator = (By.XPATH, "//*[contains(@class,'error') or contains(@class,'alert')]")
 
     def open_account_page(self, timeout=10):

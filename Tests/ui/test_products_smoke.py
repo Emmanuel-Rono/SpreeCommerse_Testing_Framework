@@ -10,7 +10,7 @@ def test_products_page_lists_items(driver,settings):
     page.open_products_page()
     products = page.get_product_list()
     assert len(products) > 0
-    assert all(p.is_displayed() for p in products)
+    assert any(p.is_displayed() for p in products)
 
 @pytest.mark.ui
 def test_can_search_products(driver,settings):

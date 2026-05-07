@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.common.exceptions import StaleElementReferenceException
+from selenium.common.exceptions import StaleElementReferenceException, TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 
 from Locators.locators import ProductsPageLocators
@@ -10,16 +10,19 @@ from Services.basepage import BasePage
 
 class OpenProductsPage(BasePage):
     def OpenProductPage(self):
-        self.open("/products")
+        self.open("/us/en/products")
 
     def open_products_page(self):
-        self.open("/products")
+        self.open("/us/en/products")
 
     def get_page_title(self):
         return self.get_title()
 
-    def get_product_list(self):
-        return self.driver.find_elements(*ProductsPageLocators.PRODUCT_ITEMS)
+    def get_product_list(self, timeout=10):
+        try:
+            return self._wait_for_any_product(timeout=timeout)
+        except TimeoutException:
+            return []
 
     def _wait_for_any_product(self, timeout=10):
         def _has_products(driver):
